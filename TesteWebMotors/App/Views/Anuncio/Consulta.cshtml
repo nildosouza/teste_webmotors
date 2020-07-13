@@ -1,0 +1,102 @@
+﻿@model App.Models.Anuncio
+
+@{
+    ViewBag.Title = "Colnsultas";
+}
+
+    <h2>Colnsultas</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Consulta de versões</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Marca, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Marca, (SelectList)ViewBag.ListaMarca, "Selecione a Marca",
+                    new { @class = "form-control", @id = "ddlMarca", @onchange = "javascript:GetModelo(this.value);" })
+                @Html.ValidationMessageFor(model => model.Marca, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Modelo, (SelectList)ViewBag.ListaModelo, "Selecione o Modelo",
+                    new { @class = "form-control", @id = "ddlModelo", @onchange = "javascript:GetVersao(this.value);" })
+                @Html.ValidationMessageFor(model => model.Modelo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Versao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Versao, (SelectList)ViewBag.ListaVersao, "Selecione a Versão",
+                    new { @class = "form-control", @id = "ddlVersao" })
+                @Html.ValidationMessageFor(model => model.Versao, "", new { @class = "text-danger" })
+            </div>
+        </div>               
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script language="javascript" type="text/javascript">
+        function GetVersao(_modeloId) {
+            var procemessage = "<option value='0'> Aguarde... </option>";
+            $("#ddlVersao").html(procemessage).show();
+            var url = "/Anuncio/GetVersao/";
+
+            $.ajax({
+                url: url,
+                data: { modeloId: _modeloId },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    var markup = "<option value='0'>Selecione a Versão</option>";
+                    for (var x = 0; x < data.length; x++) {
+                        markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                    }
+                    $("#ddlVersao").html(markup).show();
+                },
+                error: function (reponse) {
+                    alert("Erro : " + reponse);
+                }
+            });
+
+        }
+
+        function GetModelo(_marcaId) {
+            var procemessage = "<option value='0'> Aguarde... </option>";
+            $("#ddlModelo").html(procemessage).show();
+            var url = "/Anuncio/GetModelo/";
+
+            $.ajax({
+                url: url,
+                data: { marcaId: _marcaId },
+                cache: false,
+                type: "POST",
+                success: function (data) {
+                    var markup = "<option value='0'>Selecione o Modelo</option>";
+                    for (var x = 0; x < data.length; x++) {
+                        markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                    }
+                    $("#ddlModelo").html(markup).show();
+                },
+                error: function (reponse) {
+                    alert("Erro : " + reponse);
+                }
+            });
+
+        }
+    </script>
+}
