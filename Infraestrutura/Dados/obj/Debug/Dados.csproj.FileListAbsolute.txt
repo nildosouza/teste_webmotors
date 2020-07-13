@@ -1,0 +1,6 @@
+C:\Projetos-Dev\HomeOffice\DadosAcesso\bin\Debug\Dados.dll
+C:\Projetos-Dev\HomeOffice\DadosAcesso\bin\Debug\Dados.pdb
+C:\Projetos-Dev\HomeOffice\DadosAcesso\obj\Debug\Dados.csproj.CoreCompileInputs.cache
+C:\Projetos-Dev\HomeOffice\DadosAcesso\obj\Debug\Dados.dll
+C:\Projetos-Dev\HomeOffice\DadosAcesso\obj\Debug\Dados.pdb
+C:\Projetos-Dev\HomeOffice\DadosAcesso\obj\Debug\Dados.csprojAssemblyReference.cache

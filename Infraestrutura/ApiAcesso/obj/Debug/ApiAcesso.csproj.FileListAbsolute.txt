@@ -1,0 +1,6 @@
+C:\Projetos-Dev\HomeOffice\ApiAcesso\bin\Debug\ApiAcesso.dll
+C:\Projetos-Dev\HomeOffice\ApiAcesso\bin\Debug\ApiAcesso.pdb
+C:\Projetos-Dev\HomeOffice\ApiAcesso\obj\Debug\ApiAcesso.csproj.CoreCompileInputs.cache
+C:\Projetos-Dev\HomeOffice\ApiAcesso\obj\Debug\ApiAcesso.dll
+C:\Projetos-Dev\HomeOffice\ApiAcesso\obj\Debug\ApiAcesso.pdb
+C:\Projetos-Dev\HomeOffice\ApiAcesso\obj\Debug\ApiAcesso.csprojAssemblyReference.cache
